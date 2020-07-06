@@ -34,7 +34,7 @@ class EmployeeController extends Controller
 
     public function create()
     {
-        if(auth()->user()->can('onlyadmin', $employee)){
+        if(auth()->user()->id == 1){
             return view('employee.form');
         } else {
             return redirect()->route('employee.index')->with('status', 'Cant Access');

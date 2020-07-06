@@ -12,11 +12,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div class="">
-                        <a class="btn btn-sm btn-primary" href="{{ route('employee.create') }}">
-                            <i class="fa fa-plus"></i> Add
-                        </a>
-                    </div>
+                    @if(auth()->user()->id == 1)
+                        <div class="">
+                            <a class="btn btn-sm btn-primary" href="{{ route('employee.create') }}">
+                                <i class="fa fa-plus"></i> Add
+                            </a>
+                        </div>
+                    @endif
                     <br>
                     <form action="">
                         <input type="text" name="search" class="form-control" placeholder="Search by Name or NIP" value="{{ request()->search }}">
